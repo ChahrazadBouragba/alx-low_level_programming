@@ -1,0 +1,1 @@
+this directory contains structures_typedef project
