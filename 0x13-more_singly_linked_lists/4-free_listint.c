@@ -12,8 +12,8 @@ listint_t *liberated;
 
 while (head)
 {
-	liberated = head;
-	head = head->next;
-	free(liberated);
+	liberated = head->next;
+	free(head);
+	head = liberated;
 }
 }
