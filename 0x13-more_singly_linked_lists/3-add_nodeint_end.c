@@ -13,7 +13,7 @@ listint_t *node;
 listint_t *lastNode = *head;
 
 node = malloc(sizeof(listint_t));
-if (node == NULL)
+if (!node)
 	return (NULL);
 
 node->n = n;
@@ -25,7 +25,7 @@ if (*head == NULL)
 	return (node);
 }
 
-while (lastNode->next != NULL)
+while (lastNode->next)
 	lastNode = lastNode->next;
 
 lastNode->next = node;
