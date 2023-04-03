@@ -24,7 +24,7 @@ if (index == 0)
 }
 unsigned int i;
 
-for (i = 0; node && i < index - 1; i++)
+for (i = 0; i < index - 1 && node != NULL; i++)
 {
 node = node->next;
 }
