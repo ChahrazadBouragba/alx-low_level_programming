@@ -18,7 +18,8 @@ if (head == NULL || *head == NULL)
 n = (*head)->n;
 
 wipe = *head;
-head = (*head)->next;
+*head = (*head)->next;
+
 free(wipe);
 
 return (n);
