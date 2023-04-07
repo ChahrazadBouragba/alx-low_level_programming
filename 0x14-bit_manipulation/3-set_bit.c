@@ -7,15 +7,13 @@
  *
  * Return: 1 in success, -1 if failed
  */
+
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int cifra;
-
-	if (index > 63)
+	if (index >= sizeof(unsigned long int) * 8)
+	{
 		return (-1);
-
-	cifra = 1 << index;
-	*n = (*n | cifra);
-
+	}
+	*n |= (1UL << index);
 	return (1);
 }
