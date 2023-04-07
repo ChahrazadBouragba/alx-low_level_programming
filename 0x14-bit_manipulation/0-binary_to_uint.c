@@ -10,8 +10,10 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int lon = 0;
+	unsigned int n = 0;
+        unsigned int i;
 
-	if (b == NULL)
+	if (!b)
 	return (0);
 
 	while (b[lon] != '\0')
@@ -20,9 +22,6 @@ unsigned int binary_to_uint(const char *b)
 	return (0);
 	lon++;
 	}
-
-	unsigned int n = 0;
-	unsigned int i;
 
 	for (i = 0; i < lon; i++)
 	{
