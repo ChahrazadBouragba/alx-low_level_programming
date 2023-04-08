@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 char *create_buffer(char *file);
 void close_file(int fd);
@@ -29,7 +30,7 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - closes the descriotor fie
+ * close_file - closes the descriptor file
  * @fd: the file descriptor
  */
 
@@ -48,7 +49,7 @@ void close_file(int fd)
 
 /**
  * main - copies the contents of a file to another
- * @argc: Tte number of arguments
+ * @argc: The number of arguments
  * @argv: array of pointers to the arguments
  *
  * Return: returns 0 on success
@@ -71,7 +72,7 @@ int main(int argc, char *argv[])
 	dist = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (start == -1 || r == -1)
+		if (start == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read start file %s\n", argv[1]);
