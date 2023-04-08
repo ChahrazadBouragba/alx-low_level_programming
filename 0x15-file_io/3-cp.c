@@ -71,15 +71,15 @@ int main(int argc, char *argv[])
 	rd = read(start, buffer, 1024);
 	dist = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	do {
-		if (start == -1 || rd == -1)
-		{
-			dprintf(STDERR_FILENO,
-				"Error: Can't read start file %s\n", argv[1]);
-			free(buffer);
-			exit(98);
-		}
+	if (start == -1 || rd == -1)
+	{
+		dprintf(STDERR_FILENO,
+			"Error: Can't read start file %s\n", argv[1]);
+		free(buffer);
+		exit(98);
+	}
 
+	do {
 		wr = write(dist, buffer, rd);
 		if (dist == -1 || wr == -1)
 		{
@@ -90,7 +90,6 @@ int main(int argc, char *argv[])
 		}
 
 		rd = read(start, buffer, 1024);
-		dist = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (rd > 0);
 
